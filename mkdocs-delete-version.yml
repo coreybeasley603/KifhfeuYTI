@@ -8,10 +8,8 @@ on:
 jobs:
   build:
     name: Delete docs Version
-    runs-on: ubuntu-latest
     steps:
       - name: Set up Python 3.7
-        uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
@@ -31,8 +29,6 @@ jobs:
            git config --local user.email "action@github.com"
            git config --local user.name "GitHub Action"
 
-
-      - name: mkdocs delete version
         run: |
            mike delete --push ${{ github.event.inputs.version }}
            
